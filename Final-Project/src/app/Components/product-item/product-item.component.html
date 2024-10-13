@@ -1,0 +1,9 @@
+<div class="card h-100 p-2">
+    <div routerLink="/product/{{product.id}}">
+        <img [src]="product.imageCover" class="w-100" alt="">
+        <h5>{{product.category.name}}</h5>
+        <h2>{{product.title}}</h2>
+        <p>{{product.description}}</p>
+    </div>
+    <button (click)="addProductToCart(product._id)" class="btn btn-primary mt-2">+ Add To Cart</button>
+</div>

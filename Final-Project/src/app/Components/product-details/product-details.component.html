@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container *ngFor="let imgSrc of srcs">
+                    <ng-template carouselSlide>
+                        <img [src]="imgSrc">
+                    </ng-template>
+                </ng-container>
+
+            </owl-carousel-o>
+            <!-- <img [src]="productDetails.imageCover" class="w-100" alt=""> -->
+        </div>
+        <div class="col-md-9 d-flex flex-column justify-content-center">
+            <h2>{{productDetails.title}}</h2>
+            <h3>{{productDetails.category.name}}</h3>
+            <h4>{{productDetails.price}} EGP</h4>
+            <p>{{productDetails.description}}</p>
+            <span class="text-primary">{{productDetails.updatedAt}}</span>
+            <button (click)="addProductToCart(productDetails.id)" class="btn btn-primary mt-2">+ Add To Cart</button>
+
+        </div>
+    </div>
+</div>

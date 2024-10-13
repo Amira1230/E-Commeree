@@ -1,0 +1,28 @@
+<div class="container py-3">
+    <div class="d-flex align-items-center justify-content-between">
+        <h2 class="text-center">Your Cart Products</h2>
+        <button (click)="clearUserCart(); products = [];" class="btn btn-outline-danger">Clear Cart</button>
+    </div>
+    <div *ngFor="let product of products" class="row align-items-center shadow-sm my-3">
+        <div class="col-md-2 p-2">
+            <img [src]="product.product.imageCover" class="w-100" alt="">
+        </div>
+        <div class="col-md-10 d-flex justify-content-between align-items-center">
+            <div>
+                <h3>{{product.product.title}}</h3>
+                <span>Price: {{product.price}} EGP</span>
+            </div>
+            <div>
+                <button (click)="deleteProductItem(product.product.id)" class="btn btn-danger mx-2">Remove
+                    Product</button>
+                <button
+                    (click)="updateCartProductCount(product.product.id, product.count - 1); product.count = product.count - 1"
+                    class="btn btn-outline-warning mx-2">-</button>
+                <span>{{product.count}}</span>
+                <button
+                    (click)="updateCartProductCount(product.product.id, product.count + 1); product.count = product.count + 1"
+                    class="btn btn-outline-success mx-2">+</button>
+            </div>
+        </div>
+    </div>
+</div>
